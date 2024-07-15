@@ -1,30 +1,34 @@
 import {
-  Links,
-  Meta,
   Outlet,
-  Scripts,
-  ScrollRestoration,
 } from "@remix-run/react";
 import "./tailwind.css";
+import { Box, Center, ChakraProvider, HStack, VStack } from "@chakra-ui/react";
 
-export function Layout({ children }: { children: React.ReactNode }) {
+
+export const App = () => {
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-      </body>
-    </html>
-  );
+    <ChakraProvider>
+        <Center>
+          <HStack>
+            <VStack>
+              <Box bg="red.700" w="40px" h="40px" />
+              <Box bg="red.500" w="40px" h="40px" />
+              <Box bg="red.300" w="40px" h="40px" />
+            </VStack>
+            <VStack>
+              <Box bg="yellow.700" w="40px" h="40px" />
+              <Box bg="yellow.500" w="40px" h="40px" />
+              <Box bg="yellow.300" w="40px" h="40px" />
+            </VStack>
+            <VStack>
+              <Box bg="blue.700" w="40px" h="40px" />
+              <Box bg="blue.500" w="40px" h="40px" />
+              <Box bg="blue.300" w="40px" h="40px" />
+            </VStack>
+          </HStack>
+      </Center>
+    </ChakraProvider>
+  )
 }
 
-export default function App() {
-  return <Outlet />;
-}
+export default App;

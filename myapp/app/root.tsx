@@ -1,31 +1,45 @@
-import {
-  Outlet,
-} from "@remix-run/react";
 import "./tailwind.css";
-import { Box, Center, ChakraProvider, HStack, VStack } from "@chakra-ui/react";
+import { Box, Card, CardBody, CardHeader, Center, ChakraProvider, Heading, Text, Stack, StackDivider } from "@chakra-ui/react";
 
 
 export const App = () => {
   return (
     <ChakraProvider>
-        <Center>
-          <HStack>
-            <VStack>
-              <Box bg="red.700" w="40px" h="40px" />
-              <Box bg="red.500" w="40px" h="40px" />
-              <Box bg="red.300" w="40px" h="40px" />
-            </VStack>
-            <VStack>
-              <Box bg="yellow.700" w="40px" h="40px" />
-              <Box bg="yellow.500" w="40px" h="40px" />
-              <Box bg="yellow.300" w="40px" h="40px" />
-            </VStack>
-            <VStack>
-              <Box bg="blue.700" w="40px" h="40px" />
-              <Box bg="blue.500" w="40px" h="40px" />
-              <Box bg="blue.300" w="40px" h="40px" />
-            </VStack>
-          </HStack>
+      <Center>
+        <Card>
+          <CardHeader>
+            <Heading size='md'>Client Report</Heading>
+          </CardHeader>
+
+          <CardBody>
+            <Stack divider={<StackDivider />} spacing='4'>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Summary
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  View a summary of all your clients over the last month.
+                </Text>
+              </Box>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Overview
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  Check out the overview of your clients.
+                </Text>
+              </Box>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Analysis
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  See a detailed analysis of all your business clients.
+                </Text>
+              </Box>
+            </Stack>
+          </CardBody>
+        </Card>
       </Center>
     </ChakraProvider>
   )

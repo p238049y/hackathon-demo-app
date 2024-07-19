@@ -1,30 +1,48 @@
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
 import "./tailwind.css";
+import { Box, Card, CardBody, CardHeader, Center, ChakraProvider, Heading, Text, Stack, StackDivider } from "@chakra-ui/react";
 
-export function Layout({ children }: { children: React.ReactNode }) {
+
+export const App = () => {
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-      </body>
-    </html>
-  );
+    <ChakraProvider>
+      <Center>
+        <Card>
+          <CardHeader>
+            <Heading size='md'>Client Report</Heading>
+          </CardHeader>
+
+          <CardBody>
+            <Stack divider={<StackDivider />} spacing='4'>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Summary
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  View a summary of all your clients over the last month.
+                </Text>
+              </Box>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Overview
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  Check out the overview of your clients.
+                </Text>
+              </Box>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Analysis
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  See a detailed analysis of all your business clients.
+                </Text>
+              </Box>
+            </Stack>
+          </CardBody>
+        </Card>
+      </Center>
+    </ChakraProvider>
+  )
 }
 
-export default function App() {
-  return <Outlet />;
-}
+export default App;
